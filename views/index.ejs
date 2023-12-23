@@ -2,24 +2,104 @@
 <html lang="en">
 <%- include("./partials/head.ejs")%>
 
+<style>
+  body {
+    font-family: Verdana, Geneva, Tahoma, sans-serifs;
+    background-color: #d6dfe0;
+  }
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+  .book-container {
+    margin: 3rem 0rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .book-title {
+    font-size: 1.5rem;
+    text-decoration: none;
+    color: #828282;
+    transition: ease-in-out .3s;
+    cursor: pointer;
+  }
+  
+  .book-title:hover {
+    color: #000;
+    transition: ease-in-out .2s;
+    cursor: pointer;
+  }
+  
+  .action-container {
+    display: flex;
+    flex-direction: row;
+    margin-top: 1rem;
+  }
+
+  .book-edit-button {
+    background-color: #cadf7e;
+    padding: 4px 16px;
+    margin-right: 1rem;
+    border: #000 1px solid;
+    border-radius: 6px;
+    transition: ease-in-out .3s;
+  }
+
+  .book-edit-button:hover {
+    background-color: #87a713;
+    color: #fff;
+    transition: ease-in-out .2s;
+  }
+  
+  .remove-book {
+    background-color: #c70505;
+    padding: 4px 16px;
+    font-size: 1rem;
+    border: #000 1px solid;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: ease-in-out .3s;
+  }
+  .remove-book:hover {
+    background-color: #680000;
+    transition: ease-in-out .2s;
+  }
+
+  input[type="submit"] {
+    background-color: rgba(0, 0, 0, 0);
+    color: #fff;
+    font-size: 1rem;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    cursor: pointer;
+}
+</style>
+
 <body>
   <%- include("./partials/nav.ejs") %>
   <% console.log(books) %>
   <h1>Booklist Index</h1>
   <% for (let i=0; i <books.length; ++i) { %>
-  <div>
-    <a href="/books/<%= books[i]._id %>">
-      <%= books[i].title %>
-    </a>
-    <p>
-      click title to see more
-    </p>
-    <!-- delete form goes here -->
-    <form action="/books/<%= books[i]._id%>/?_method=DELETE" method="post">
-      <input type="submit" value="Remove Book">
-  </form>
-  <!-- link to our edit page -->
-<a href="/books/edit/<%= books[i]._id%>/">Edit <%= books[i].title %></a>
+  <div class="book-container">
+    <div class="book-title">
+      <a href="/books/<%= books[i]._id %>">
+        <%= books[i].title %>
+      </a>
+    </div>
+    <div class="action-container">
+      <div class="book-edit-button">
+        <!-- link to our edit page -->
+        <a href="/books/edit/<%= books[i]._id%>/">Edit</a>
+      </div>
+      <div class="remove-book">
+        <!-- delete form goes here -->
+        <form action="/books/<%= books[i]._id%>/?_method=DELETE" method="post">
+          <input type="submit" value="Remove">
+        </form>
+      </div>
+    </div>
   </div>
 
   <% } %>
