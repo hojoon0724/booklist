@@ -87,11 +87,11 @@ input[type="submit"]:hover {
   flex-direction: column;
   justify-content: space-between;
   min-height: 200px;
-  margin-bottom: 100px;
   background-color: #eee;
   padding: 16px;
   align-items: center;
   text-align: center;
+  border-radius: 8px;
 }
 
 .book-title {
