@@ -1,7 +1,10 @@
 body {
-  color: red;
+  /* color: red; */
   font-family: Verdana, Geneva, Tahoma, sans-serifs;
   background-color: #d6dfe0;
+  text-align: center;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 a {
@@ -86,7 +89,7 @@ input[type="submit"]:hover {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 200px;
+  min-height: 160px;
   background-color: #eee;
   padding: 16px;
   align-items: center;
@@ -119,6 +122,7 @@ input[type="submit"]:hover {
   padding: 4px 16px;
   margin-right: 1rem;
   border: #000 1px solid;
+  color: black;
   border-radius: 6px;
   transition: ease-in-out 0.3s;
 }
@@ -143,8 +147,9 @@ input[type="submit"]:hover {
   transition: ease-in-out 0.2s;
 }
 
-#deleteform > input {
+#deleteform {
   background-color: rgba(0, 0, 0, 0);
+  box-shadow: none;
   color: #fff;
   font-size: 1rem;
   padding: 0;
